@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{336F7B7B-1813-43D1-8C38-961C0323AD7C}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		PayrollDeduction.Web.vsmdi = PayrollDeduction.Web.vsmdi
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollDeduction.Web", "PayrollDeduction.Web\PayrollDeduction.Web.csproj", "{309DAF57-2911-4B3B-A89E-2924F5ED97B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollDeduction.Web.Tests", "PayrollDeduction.Web.Tests\PayrollDeduction.Web.Tests.csproj", "{9EEFFCA5-11BA-49A4-BC8D-1F6C77F91146}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{309DAF57-2911-4B3B-A89E-2924F5ED97B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{309DAF57-2911-4B3B-A89E-2924F5ED97B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{309DAF57-2911-4B3B-A89E-2924F5ED97B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{309DAF57-2911-4B3B-A89E-2924F5ED97B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EEFFCA5-11BA-49A4-BC8D-1F6C77F91146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EEFFCA5-11BA-49A4-BC8D-1F6C77F91146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EEFFCA5-11BA-49A4-BC8D-1F6C77F91146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EEFFCA5-11BA-49A4-BC8D-1F6C77F91146}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = PayrollDeduction.Web.vsmdi
+	EndGlobalSection
+EndGlobal

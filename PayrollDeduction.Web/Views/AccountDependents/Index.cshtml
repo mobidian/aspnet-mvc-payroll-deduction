@@ -1,0 +1,25 @@
+﻿@model PayrollDeduction.Web.Models.Account
+
+@{
+    ViewBag.Title = "Dependents";
+}
+
+@Html.Partial("_Header.Account")
+
+<table id="dependents" class="table">
+    <thead>
+        <tr>
+            <th style="width: 85%">Name</th>
+            <th style="width: 15%">DOB</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dependent in Model.Dependents)
+        {
+            <tr>
+                <td>@dependent.FullName</td>
+                <td>@dependent.BirthDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

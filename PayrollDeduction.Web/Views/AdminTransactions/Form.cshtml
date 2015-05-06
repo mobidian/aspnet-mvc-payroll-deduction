@@ -1,0 +1,23 @@
+﻿@Html.ValidationSummary("The following errors occurred:", new { @class = "alert alert-block alert-error" })
+
+<h4>Add Transaction</h4>
+<form class="well form-inline" action="@Url.Action("Create", ViewContext.RouteData.Values)" method="post">
+    <div class="row">
+        <div class="span3">
+            <label for="TypeId">Type:</label>
+            <select class="span2" name="TypeId">
+                <option value="0">Debit</option>
+                <option value="1">Credit</option>
+            </select>
+        </div>
+        <div class="span4">
+            <label for="Note">Note:</label>
+            <input class="span3" type="text" name="Note" />
+        </div>
+        <div class="span4">
+            <label for="Amount">Amount:</label>
+            <input class="span2" type="text" name="Amount" />
+            <input class="btn btn-primary" type="submit" value="Add" />
+        </div>
+    </div>
+</form>

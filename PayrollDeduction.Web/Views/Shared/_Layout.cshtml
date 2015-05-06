@@ -1,0 +1,26 @@
+﻿@{
+    Bundles.Reference("application");
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title - Payroll Deduction</title>
+    @Bundles.RenderStylesheets()
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="/">Payroll Deduction</a>
+                @Html.Partial("_Navigation")
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @Flash.Message(TempData)
+        @RenderBody()
+    </div>
+    @Bundles.RenderScripts()
+</body>
+</html>

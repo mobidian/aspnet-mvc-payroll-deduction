@@ -1,0 +1,20 @@
+﻿@Html.ValidationSummary("The following errors occurred:", new { @class = "alert alert-block alert-error" })
+
+<h4>Add Dependent</h4>
+<form class="well form-inline" action="@Url.Action("Create")" method="post">
+    <div class="row">
+        <div class="span3">
+            <label for="FirstName">First Name:</label>
+            <input class="span2" type="text" name="FirstName" />
+        </div>
+        <div class="span3">
+            <label for="LastName">Last Name:</label>
+            <input class="span2" type="text" name="LastName" />
+        </div>
+        <div class="span5">
+            <label for="BirthDate">Date of Birth:</label>
+            <input class="span2" type="text" name="BirthDate" placeholder="MM/DD/YYYY" />
+            <input class="btn btn-primary" type="submit" value="Add" />
+        </div>
+    </div>
+</form>

@@ -1,0 +1,61 @@
+﻿@model PayrollDeduction.Web.ViewModels.SessionFormModel
+
+@{ 
+    Layout = null;
+    Bundles.Reference("session");
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payroll Deduction</title>
+    @Bundles.RenderStylesheets()
+</head>
+<body>
+    <div class="session-container">
+        @Flash.Message(TempData)
+        @Html.ValidationSummary("The following error(s) occurred: ", new { @class = "alert alert-block alert-error" })
+
+        <div class="welcome">
+            <div class="welcome-inner">
+                <h1>Payroll Deduction</h1>
+                <p>
+                    The Payroll Deduction program allows team members to deduct charges for any medical 
+                    services from their paycheck each pay period.
+                </p>
+
+                <div class="welcome-options">
+                    <div class="welcome-option signin-option">
+                        <h2>Already have an account?<br />Sign In</h2>
+                        <form action="@Url.Action("Create")" method="post">
+                            <p>
+                                @Html.LabelFor(x => x.UserName)
+                                @Html.TextBoxFor(x => x.UserName)
+                            </p>
+                            <p>
+                                @Html.LabelFor(x => x.Password)
+                                @Html.PasswordFor(x => x.Password)
+                            </p>
+                            <p>
+                                <input class="btn btn-primary" type="submit" value="Sign In" />
+                            </p>
+                        </form>
+                    </div>
+                    <div class="welcome-option signup-option">
+                        <h2>Don't have an account?<br />Sign Up</h2>
+                        <p>
+                            You can sign up for an account by completing
+                            the Payroll Deduction Authorization Form. With an
+                            account you can view your balance and manage your dependents.
+                        </p>
+                        <p>
+                            <a class="btn btn-primary" href="@Url.Action("Create", "Authorizations")">Sign Up</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Bundles.RenderScripts()
+</body>
+</html>

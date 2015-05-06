@@ -1,0 +1,53 @@
+﻿@model PayrollDeduction.Web.Models.Authorization
+
+@{
+    ViewBag.Title = "Authorization";
+} 
+
+<div class="page-header">
+    <div class="row">
+        <div class="span7">
+            <h1>Payroll Authorization</h1>
+        </div>
+        <div class="span5">
+            <a class="btn" href="@Url.Action("Index")"><i class="icon-arrow-left"></i> Back To List</a>
+
+            @if (!Model.Archived)
+            {
+                <a class="btn btn-success" href="@Url.Action("Complete", new { id = Model.Id })" data-method="post"><i class="icon-ok"></i> Complete</a>
+            }
+
+            <a class="btn btn-danger" href="@Url.Action("Delete", new { id = Model.Id })" data-method="post"><i class="icon-remove"></i> Delete</a>
+        </div>
+    </div>
+</div>
+
+<h2>Team Member</h2>
+<div class="well">
+    @Model.TeamMember.FullName
+    @String.Format("({0})", Model.TeamMember.TeamMemberId)
+</div>
+    
+<h2>Dependents</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (var i = 0; i < Model.Dependents.Count; i++)
+        {
+            <tr>
+                <th style="width: 15%">Dependent @(i+1)</th>
+                <td>@Model.Dependents[i].FirstName</td>
+                <td>@Model.Dependents[i].LastName</td>
+                <td>@Model.Dependents[i].BirthDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

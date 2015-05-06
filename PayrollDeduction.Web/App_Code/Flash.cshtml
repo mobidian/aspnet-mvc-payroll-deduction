@@ -1,0 +1,17 @@
+﻿@helper Message(dynamic tempData)
+{
+    var keys = new[] { "error", "warning", "success" };
+    
+    foreach (var key in keys)
+    {
+        var message = tempData[key];
+
+        if (!String.IsNullOrEmpty(message))
+        {
+            <div class="alert alert-@key">
+                <a href="#" class="close" data-dismiss="alert">x</a>
+                @message
+            </div>
+        }
+    }
+}

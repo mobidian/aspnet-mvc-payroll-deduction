@@ -1,0 +1,32 @@
+﻿@model PayrollDeduction.Web.Models.Account
+
+@{
+    ViewBag.Title = "Dependents";
+}
+
+@Html.Partial("_Header.Account")
+@Html.Partial("Form")
+
+<table id="dependents" class="table">
+    <thead>
+        <tr>
+            <th style="width: 70%">Name</th>
+            <th style="width: 15%">DOB</th>
+            <th style="width: 15%">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dependent in Model.Dependents)
+        {
+            <tr>
+                <td>@dependent.FullName</td>
+                <td>@dependent.BirthDate.ToShortDateString()</td>
+                <td>
+                    <form class="form-inline form-condensed" action="@Url.Action("Delete", new { id = dependent.Id })" method="post">
+                        <input class="btn btn-mini btn-danger" type="submit" value="Remove" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

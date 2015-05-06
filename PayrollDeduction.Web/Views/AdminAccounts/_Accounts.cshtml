@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PayrollDeduction.Web.Models.Account>
+
+@foreach (var account in Model)
+{
+    <tr>
+        <td>
+            @account.TeamMember.FullName
+        </td>
+        <td>
+            @if (account.Active)
+            {
+                <span class="label label-success">Active</span>
+            }
+            else
+            {
+                <span class="label label-important">Inactive</span>
+            }
+        </td>
+        <td>
+            @String.Format("{0:c}", account.Balance)
+        </td>
+        <td>
+            @String.Format("{0:c}", account.PaymentAmount)
+        </td>
+        <td>
+            @account.PayPeriods
+        </td>
+        <td>
+            <div class="btn-group">
+                <a class="btn btn-mini" href="@Url.RouteUrl("Admin_Transactions", new { action = "Index", accountId = account.Id })">View</a>
+                <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                    @if (account.Active) 
+                    {
+                        <li><a href="@Url.Action("Deactivate", new { id = account.Id })" data-method="post">Mark as Inactive</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Activate", new { id = account.Id })" data-method="post">Mark as Active</a></li>
+                    }
+                </ul>
+            </div>
+        </td>
+    </tr>
+}

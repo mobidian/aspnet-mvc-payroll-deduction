@@ -1,0 +1,22 @@
+﻿@model PayrollDeduction.Web.Models.Account
+
+@{
+    ViewBag.Title = "Transactions";
+}
+
+@Html.Partial("_Header.Account")
+@Html.Partial("Form")
+
+<table id="transactions" class="table">
+    <thead>
+        <th style="width: 15%">Date</th>
+        <th style="width: 55%">Note</th>
+        <th style="width: 15%">Debits [+]</th>
+        <th style="width: 15%">Credits [-]</th>
+    </thead>
+    <tbody>
+        @Html.Partial("_Transactions")
+    </tbody>
+</table>
+
+<div class="pagination" data-content="#transactions tbody"></div>

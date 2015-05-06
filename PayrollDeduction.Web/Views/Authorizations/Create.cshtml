@@ -1,0 +1,65 @@
+﻿@model PayrollDeduction.Web.ViewModels.AuthorizationFormModel
+
+@{ 
+    ViewBag.Title = "Payroll Authorizations";
+}
+
+<div class="page-header">
+    <h1>Payroll Authorization</h1>
+</div>
+
+<div id="form-wrapper">
+    @Html.ValidationSummary("The following errors occurred:", new { @class = "alert alert-block alert-error" })
+
+    <form class="form-horizontal" action="@Url.Action("Create")" method="post">
+        <div class="well control-group">
+            <label class="control-label" for="TeamMemberId">Team Member ID</label>
+            <div class="controls">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @Html.TextBoxFor(x => x.TeamMemberId, new { @readonly = "readonly" })
+                }
+                else
+                {
+                    @Html.TextBoxFor(x => x.TeamMemberId)
+                }
+            </div>
+        </div>
+        
+        <h2>Dependents</h2>
+
+        <div class="alert alert-info">
+            <strong>Note:</strong>
+            List names and birth dates of dependents whose medical services you would like to
+            payroll deduct
+        </div>
+
+        <div class="well">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Date of Birth</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = 0; i < Model.Dependents.Count; i++)
+                    {
+                        <tr>
+                            <th style="width: 15%">Dependent @(i + 1)</th>
+                            <td>@Html.TextBoxFor(x => x.Dependents[i].FirstName)</td>
+                            <td>@Html.TextBoxFor(x => x.Dependents[i].LastName)</td>
+                            <td>@Html.EditorFor(x => x.Dependents[i].BirthDate, "DateField")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-actions">
+            <input class="btn btn-primary" type="submit" name="Source" value="Save Authorization" />
+        </div>
+    </form>
+</div>

@@ -1,0 +1,9 @@
+﻿@foreach (var transaction in Model.Transactions)
+{
+    <tr>
+        <td>@transaction.CreatedOn.ToShortDateString()</td>
+        <td>@transaction.Note</td>
+        <td>@(transaction.TypeId == 0 ? String.Format("{0:c}", transaction.Amount) : "")</td>
+        <td>@(transaction.TypeId == 1 ? String.Format("{0:c}", transaction.Amount) : "")</td>
+    </tr>
+}

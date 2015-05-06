@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PayrollDeduction.Web.Models.Account>
+
+@{
+    ViewBag.Title = "Accounts";
+} 
+
+<div class="page-header page-header-condensed">
+    <div class="row">
+        <div class="span8">
+            <h1>Accounts</h1>
+        </div>
+        <div class="span4">
+            <form class="form-search" action="@Url.Action("Search")" method="GET">
+                <input class="search-query" type="text" name="query" placeholder="Search Accounts" />
+                <input class="btn btn-primary" type="submit" value="Search" />
+            </form>
+        </div>
+    </div>
+</div>
+
+<table id="accounts" class="table">
+    <thead>
+        <th style="width: 40%">Team Member</th>
+        <th style="width: 10%">Status</th>
+        <th style="width: 13%">Balance</th>
+        <th style="width: 13%">Payment</th>
+        <th style="width: 13%">Pay Periods</th>
+        <th style="width: 10%">Action</th>
+    </thead>
+    <tbody>
+        @Html.Partial("_Accounts", Model)
+    </tbody>
+</table>
+
+<div class="pagination" data-content="#accounts tbody"></div>

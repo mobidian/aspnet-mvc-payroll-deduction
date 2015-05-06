@@ -1,0 +1,36 @@
+﻿@model PayrollDeduction.Web.Models.Account
+
+<div class="page-header page-header-condensed">
+    <div class="row">
+        <div class="span6">
+            <h1>@Model.TeamMember.FullName <small>@Model.TeamMember.TeamMemberId</small></h1>
+        </div>
+        <div class="span6">
+            <ul id="account-details" class="breadcrumb" style="text-align: center">
+                <li>Balance: <b>@String.Format("{0:c}", Model.Balance)</b><span class="divider">|</span></li>
+                <li>Payment: <b>@String.Format("{0:c}", Model.PaymentAmount)</b><span class="divider">|</span></li>
+                <li>Pay Periods: <b>@Model.RemainingPayments</b></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<ul class="nav nav-tabs">
+    @{ var controllerName = ViewContext.RouteData.Values["controller"].ToString(); }
+    <li class="@(controllerName.Contains("Transactions") ? "active" : "")">
+        @Html.ActionLink("Transactions", "Index", controllerName.Replace("Dependents", "Transactions"))
+    </li>
+    <li class="@(controllerName.Contains("Dependents") ? "active" : "")">
+        @Html.ActionLink("Dependents", "Index", controllerName.Replace("Transactions", "Dependents"))
+    </li>
+    @if (!controllerName.StartsWith("Admin"))
+    {
+        <li class="pull-right">
+            <div class="btn-group">
+                <a class="btn btn-primary" href="@Url.Action("Create", "Authorizations")">
+                    Change Dependents
+                </a>
+            </div>
+        </li>
+    }
+</ul>

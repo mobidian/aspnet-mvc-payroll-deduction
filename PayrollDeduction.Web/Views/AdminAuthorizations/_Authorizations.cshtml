@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PayrollDeduction.Web.Models.Authorization>
+
+@foreach (var authorization in Model)
+{
+    <tr>
+        <td>
+            @authorization.TeamMember.FullName
+        </td>
+        <td>
+            @if (authorization.Archived)
+            {
+                <span class="label label-success">Complete</span>
+            }
+            else
+            {
+                <span class="label label-warning">Incomplete</span>
+            }
+        </td>
+        <td>
+            @authorization.Dependents.Count()
+        </td>
+        <td>
+            @String.Format("{0:d}", authorization.CreatedOn)
+        </td>
+        <td>
+            <div class="btn-group">
+                <a class="btn btn-mini" href="@Url.Action("Details", new { id = authorization.Id })">View</a>
+                <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                    @if (!authorization.Archived)
+                    {
+                        <li><a href="@Url.Action("Complete", new { id = authorization.Id })" data-method="post">Mark as Complete</a></li>
+                    }
+                    <li><a href="@Url.Action("Delete", new { id = authorization.Id })" data-method="post">Delete Authorization</a></li>
+                </ul>
+            </div>
+            
+        </td>
+    </tr>
+}

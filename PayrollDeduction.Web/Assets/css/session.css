@@ -1,0 +1,88 @@
+﻿body {
+    background: url('../img/rough_diagonal.png');
+    color: #444;
+    font: 16px/1.5 Georgia, serif;
+    padding: 50px;
+}
+
+a {
+    font: 16px/1.5 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+}
+
+h1, h2 { 
+    color: #000;
+    font-family: Georgia, serif; 
+    font-weight: normal; 
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== CONTAINERS ===== */
+
+.session-container {
+    margin: 0 auto;
+    width: 740px;
+}
+
+/* ===== WELCOME ===== */
+
+.welcome {
+    background-color: #FFF;
+    box-shadow: 3px 3px 3px #BBB;
+    padding: 6px;
+}
+
+.welcome-inner {
+    border: solid 2px #EEE;
+    padding: 30px;
+}
+
+.welcome-options {
+    zoom: 1;
+}
+
+.welcome-options:before,
+.welcome-options:after {
+    content: "";
+    display: table;
+}
+
+.welcome-options:after {
+    clear: both;
+}
+
+.welcome-option {
+    margin-top: 30px;
+}
+
+.welcome-option h2 {
+    margin: 0px 0px 20px 0px;
+    padding: 0;
+}
+
+.signup-option {
+    border-left: solid 1px #DDD;
+    float: right;
+    width: 45%;
+    padding-left: 4%;
+}
+
+.signin-option {
+    font-family: Arial, Sans-Serif;
+    float: left;
+    width: 45%;
+    padding-right: 4%;
+}
+
+.signin-option form label {
+    color: #000;
+    display: block;
+    font-weight: bold;
+}
+
+.signin-option form input[type=text],
+.signin-option form input[type=password] {
+    font-size: 95%;
+    padding: 4px;
+    width: 100%;
+}

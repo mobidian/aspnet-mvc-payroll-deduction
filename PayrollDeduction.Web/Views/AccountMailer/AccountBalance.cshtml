@@ -1,0 +1,13 @@
+﻿@{
+    Layout = null;
+}
+
+<p>Hi, @ViewBag.FirstName</p>
+<p>
+    <b>Balance:</b> @String.Format("{0:c}", ViewBag.Balance)<br />
+    <b>Payment Amount:</b> @String.Format("{0:c}", ViewBag.PaymentAmount)<br />
+    <b>Remaining Payments:</b> @String.Format("{0:c}", ViewBag.RemainingPayments)
+</p>
+<p>
+    <a href="#">Payroll Deduction Login</a>
+</p>

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<PayrollDeduction.Web.Models.Authorization>
+
+@{
+    ViewBag.Title = "Authorizations";
+} 
+
+<div class="page-header page-header-condensed">
+    <div class="row">
+        <div class="span8">
+            <h1>Authorizations</h2>
+        </div>
+        <div class="span4">
+            <form class="form-search" action="@Url.Action("Search")" method="GET">
+                <input class="search-query" type="text" name="query" placeholder="Search Authorizations" />
+                <input class="btn btn-primary" type="submit" value="Search" />
+            </form>
+        </div>
+    </div>
+</div>
+
+<table id="authorizations" class="table">
+    <thead>
+        <th style="width: 50%">Team Member</th>
+        <th style="width: 13%">Status</th>
+        <th style="width: 13%">Dependents</th>
+        <th style="width: 13%">Created</th>
+        <th style="width: 10%">Action</th>
+    </thead>
+    <tbody>
+        @Html.Partial("_Authorizations", Model)
+    </tbody>
+</table>
+
+<div class="pagination" data-content="#authorizations tbody"></div>
