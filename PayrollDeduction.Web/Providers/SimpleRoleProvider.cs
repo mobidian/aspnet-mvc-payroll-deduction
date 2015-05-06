@@ -1,4 +1,10 @@
-﻿using System;
+// ==================================================================================
+// PLEASE NOTE:
+// THIS CLASS IS PROVIDED FOR DEMONSTRATION PURPOSES ONLY AND SHOULD NOT BE USED IN A
+// PRODUCTION APPLICATION. 
+// ==================================================================================
+
+using System;
 using System.Collections.Specialized;
 using System.Configuration;
 using System.Linq;
